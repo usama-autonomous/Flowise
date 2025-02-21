@@ -19,7 +19,7 @@ services:
       - flowise-network
     volumes: 
         - ~/.flowise:/root/.flowise
-    entrypoint: \bin\sh -c "sleep 3; flowise start"
+    entrypoint: /bin/sh -c "sleep 3; flowise start"
 
   # PostgreSQL service
   postgres:
