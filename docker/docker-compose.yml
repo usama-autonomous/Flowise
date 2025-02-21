@@ -4,16 +4,22 @@ services:
   # Flowise service
   flowise:
     image: flowiseai/flowise:latest
+    restart: always
     container_name: flowise
     environment:
       - DATABASE_URL=postgres://user:postgres@flowise-db:5433/postgres
       - PORT=3002
+      - FLOWISE_USERNAME=memox
+      - FLOWISE_PASSWORD=memox123
     ports:
       - "3002:3000"
     depends_on:
       - postgres
     networks:
       - flowise-network
+    volumes: 
+        - ~/.flowise:/root/.flowise
+    entrypoint: \bin\sh -c "sleep 3; flowise start"
 
   # PostgreSQL service
   postgres:
