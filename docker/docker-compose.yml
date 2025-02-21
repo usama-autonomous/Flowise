@@ -6,8 +6,8 @@ services:
     image: flowiseai/flowise:latest
     container_name: flowise
     environment:
-      - DATABASE_URL=postgres://user:postgres@flowise-db:5432/postgres
-      - PORT=3000
+      - DATABASE_URL=postgres://user:postgres@flowise-db:5433/postgres
+      - PORT=3002
     ports:
       - "3002:3000"
     depends_on:
@@ -36,7 +36,7 @@ services:
     container_name: chroma
     environment:
       - CHROMA_SERVER_HOST=0.0.0.0
-      - CHROMA_SERVER_HTTP_PORT=8000
+      - CHROMA_SERVER_HTTP_PORT=8002
     ports:
       - "8002:8000"
     networks:
